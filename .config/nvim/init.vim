@@ -65,11 +65,10 @@ set backspace=indent,eol,start          "Backspace for dummies
 """"""""""""""""
 syntax on                               "show syntax color 
 set background=dark                     "set background dark
-set number relativenumber               "show line number
 set title                               "show title
 set cursorline                          "highlight current line
 set cursorcolumn                        "highlight current column
-set mouse=a                             "mouse support (for highlighting etc.), press shift when you want to copy&paste
+"set mouse=a                             "mouse support (for highlighting etc.), press shift when you want to copy&paste
 set encoding=utf8                       "encoding
 set visualbell                          "chose visual bell rather than beeping
 set t_Co=256                            "Support 256 color
@@ -104,6 +103,9 @@ map <leader>t :term<cr>
 
 " ,jd to insert jsDoc
 nmap <leader>jd :JsDoc<cr>
+
+" ,r to run go program
+au Filetype go nmap <leader>r :GoRun<cr>
 
 " map ESC to ii
 inoremap ii <ESC>
@@ -176,6 +178,8 @@ set updatetime=100
 let g:ale_linters = {'javascript': ['eslint', 'flow']}                                                                                                                         
 " vim-go
 let g:go_version_warning = 0
+let g:go_term_mode = "split"
+let g:go_term_enabled = 1
 
 " YCM
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
