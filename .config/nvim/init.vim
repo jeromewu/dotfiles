@@ -183,3 +183,6 @@ let g:go_term_enabled = 1
 
 " YCM
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+
+" spellcheck for *.md files
+autocmd BufRead,BufNewFile *.md setlocal spell         
