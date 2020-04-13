@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Raise DPI from 96 to 276 to makes text size front
-xfconf-query -c xsettings -p /Xft/DPI -s 276
+xfconf-query -c xsettings -p /Xft/DPI -s 240
 
 # Enlarge cursor size
 xfconf-query -c xsettings -p /Gtk/CursorThemeSize -s 48
