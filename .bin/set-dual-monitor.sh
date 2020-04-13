@@ -27,8 +27,8 @@ xfconf-query -c xsettings -p /Gtk/IconSizes -s ""
 
 # Set extended monitor
 EX_MONITOR=$(xrandr | grep " connected" | cut -d " " -f1 | sed -n 2p)
-xrandr --output eDP-1 --mode 1600x900 --primary --left-of $EX_MONITOR \
-  --output $EX_MONITOR 
+xrandr --output eDP-1 --mode 1600x900 --left-of $EX_MONITOR \
+  --output $EX_MONITOR --primary
 
 # Set xfce4-panel power manager plugin icon size
 cp $(dirname $0)/assets/gtk.dual.css ~/.config/gtk-3.0/gtk.css
