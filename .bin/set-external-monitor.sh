@@ -25,10 +25,10 @@ xfconf-query -c xfwm4 -p /general/theme -s "Arc-Dark-GalliumOS"
 # Enlarge most of the icons
 xfconf-query -c xsettings -p /Gtk/IconSizes -s ""
 
-# Set extended monitor
+# Set external monitor
 EX_MONITOR=$(xrandr | grep " connected" | cut -d " " -f1 | sed -n 2p)
-xrandr --output eDP-1 --mode 1600x900 \
-  --output $EX_MONITOR --primary --right-of eDP-1
+xrandr --output eDP-1 --off \
+  --output $EX_MONITOR --primary
 
 # Set xfce4-panel power manager plugin icon size
 cp $(dirname $0)/assets/gtk.dual.css ~/.config/gtk-3.0/gtk.css
