@@ -17,6 +17,7 @@ install_zsh() {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   mkdir ~/.bin
   cp ./.zshrc ~/.zshrc
+  touch ~/.z # For z plugin
 }
 
 install_zsh_pure_theme() {
