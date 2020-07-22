@@ -15,16 +15,18 @@ Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'ludovicchabant/vim-gutentags'     "tags file manager, <C-]> to jump to definition 
-Plug 'mattn/emmet-vim'                  "improve HTML workflow using <C-y>, to expand tag
-Plug 'airblade/vim-gitgutter'           "show git gutter, ]c jump to next change, [c jump to prev one
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
+Plug 'ludovicchabant/vim-gutentags'     " tags file manager, <C-]> to jump to definition 
+Plug 'mattn/emmet-vim'                  " improve HTML workflow using <C-y>, to expand tag
+Plug 'airblade/vim-gitgutter'           " show git gutter, ]c jump to next change, [c jump to prev one
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer --go-completer' }
 Plug 'w0rp/ale'
+Plug 'hashivim/vim-terraform'
+Plug 'AndrewRadev/splitjoin.vim'        " gS to split and gJ to join
 
 call plug#end()
 
@@ -97,18 +99,35 @@ map <leader>pp :setlocal paste!<cr>
 nmap <silent> <leader>x :%!xxd<cr>
 nmap <silent> <leader>xx :%!xxd -r<cr>
 
+" Quickfix window shortcuts
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
 " ,t to open a terminal
 " To scroll the terminal, hit Ctrl+w N and go back with i or a
 map <leader>t :term<cr>
 
 " ,jd to insert jsDoc
-nmap <leader>jd :JsDoc<cr>
+autocmd FileType js nmap <leader>jd :JsDoc<cr>
 
-" ,r to run go program
-au Filetype go nmap <leader>r :GoRun<cr>
+" go shortcuts
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+" splitjoin
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+nmap <leader>j :SplitjoinJoin<cr>
+nmap <leader>s :SplitjoinSplit<cr>
 
 " map ESC to ii
 inoremap ii <ESC>
+
+" nerd tree
+nmap <leader>nt :NERDTreeFind<CR>
 
 """""""""""""""""""
 "Function, autocmd"
@@ -134,7 +153,6 @@ autocmd BufReadPost *
 silent! colorscheme gruvbox
 
 " NerdTree
-nmap <leader>nt :NERDTreeFind<CR>
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeChDirMode=0
@@ -143,6 +161,9 @@ let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
+
+" NerdCommenter
+let g:NERDSpaceDelims = 1
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
@@ -178,11 +199,10 @@ set updatetime=100
 let g:ale_linters = {'javascript': ['eslint', 'flow']}                                                                                                                         
 " vim-go
 let g:go_version_warning = 0
-let g:go_term_mode = "split"
-let g:go_term_enabled = 1
+let g:go_list_type = "quickfix"
 
 " YCM
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 
 " spellcheck for *.md files
-autocmd BufRead,BufNewFile *.md setlocal spell         
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
