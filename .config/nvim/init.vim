@@ -27,6 +27,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-comp
 Plug 'w0rp/ale'
 Plug 'hashivim/vim-terraform'
 Plug 'AndrewRadev/splitjoin.vim'        " gS to split and gJ to join
+Plug 'tpope/vim-fugitive' 
 
 call plug#end()
 
@@ -186,6 +187,7 @@ let g:UltiSnipsExpandTrigger="<c-o>"
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q', '--c++-kinds=+px', '--c-kinds=+px']
+let g:gutentags_exclude_filetypes = ['yaml', 'yml', 'json']
 let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
 if !isdirectory(s:vim_tags)
