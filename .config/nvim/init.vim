@@ -28,6 +28,8 @@ Plug 'w0rp/ale'
 Plug 'hashivim/vim-terraform'
 Plug 'AndrewRadev/splitjoin.vim'        " gS to split and gJ to join
 Plug 'tpope/vim-fugitive' 
+Plug 'gabrielelana/vim-markdown'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
@@ -130,6 +132,12 @@ inoremap ii <ESC>
 " nerd tree
 nmap <leader>nt :NERDTreeFind<CR>
 
+" bind K to grep word under cursor
+nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Use backward slash to trigger ack grep
+nnoremap \ :Ack<SPACE>
+
 """""""""""""""""""
 "Function, autocmd"
 """""""""""""""""""
@@ -187,7 +195,7 @@ let g:UltiSnipsExpandTrigger="<c-o>"
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q', '--c++-kinds=+px', '--c-kinds=+px']
-let g:gutentags_exclude_filetypes = ['yaml', 'yml', 'json']
+let g:gutentags_exclude_filetypes = ['yaml', 'yml', 'json', 'md']
 let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
 if !isdirectory(s:vim_tags)
@@ -208,3 +216,8 @@ let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 
 " spellcheck for *.md files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
+
+" Use ag with ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif

@@ -59,7 +59,7 @@ install_nvm_and_node() {
 
 install_nvim_plugins() {
   echo "Install nvim plugins..."
-  check_deps nvim git node cmake python go ctags
+  check_deps nvim git node cmake python go ctags ag
   cp -r ./.config/nvim ~/.config
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
