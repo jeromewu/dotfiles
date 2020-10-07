@@ -30,6 +30,8 @@ Plug 'AndrewRadev/splitjoin.vim'        " gS to split and gJ to join
 Plug 'tpope/vim-fugitive' 
 Plug 'gabrielelana/vim-markdown'
 Plug 'mileszs/ack.vim'
+Plug 'easymotion/vim-easymotion'
+
 
 call plug#end()
 
@@ -137,6 +139,22 @@ nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Use backward slash to trigger ack grep
 nnoremap \ :Ack<SPACE>
+
+" easymotion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 """""""""""""""""""
 "Function, autocmd"
