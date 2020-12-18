@@ -73,7 +73,7 @@ prompt pure
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git alias-finder z zsh-syntax-highlighting)
+plugins=(git alias-finder z zsh-syntax-highlighting kubectl terraform rails ruby aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,6 +102,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim=nvim
+alias ne='node --experimental-wasm-threads --experimental-wasm-bulk-memory'
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -116,6 +118,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Autocomplete and alias for kubectl
-#source <(kubectl completion zsh)
-#alias k=kubectl
-#complete -F __start_kubectl k
+# source <(kubectl completion zsh)
+# alias k=kubectl
+# complete -F __start_kubectl k
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# function get_cluster_short() {
+#   echo "$1" | cut -d '/' -f2
+# }
+# PROMPT='$(kube_ps1)'$PROMPT
+# KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
+
+# source '/opt/kube-ps1/kube-ps1.sh'

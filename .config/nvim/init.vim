@@ -9,7 +9,7 @@
 """"""""""
 call plug#begin()
 
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
@@ -20,10 +20,10 @@ Plug 'mattn/emmet-vim'                  " improve HTML workflow using <C-y>, to 
 Plug 'airblade/vim-gitgutter'           " show git gutter, ]c jump to next change, [c jump to prev one
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'           " `saiw(` to add, `sd(` to delete, `srb(` to replace
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer --go-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer --go-completer --java-completer' }
 Plug 'w0rp/ale'
 Plug 'hashivim/vim-terraform'
 Plug 'AndrewRadev/splitjoin.vim'        " gS to split and gJ to join
@@ -31,7 +31,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'gabrielelana/vim-markdown'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
-
 
 call plug#end()
 
@@ -134,11 +133,8 @@ inoremap ii <ESC>
 " nerd tree
 nmap <leader>nt :NERDTreeFind<CR>
 
-" bind K to grep word under cursor
-nnoremap K :Ack "\b<C-R><C-W>\b"<CR>:cw<CR>
-
 " Use backward slash to trigger ack grep
-nnoremap \ :Ack<SPACE>
+nnoremap \ :Ack!<SPACE>
 
 " easymotion
 " <Leader>f{char} to move to {char}
@@ -177,7 +173,8 @@ autocmd BufReadPost *
 "Plugin Setting"
 """"""""""""""""
 " A nice color theme
-silent! colorscheme gruvbox
+let g:dracula_italic = 0          " disable italic support
+silent! colorscheme dracula
 
 " NerdTree
 let NERDTreeShowBookmarks=1
@@ -224,7 +221,9 @@ endif
 set updatetime=100
 
 " vim-ale
-let g:ale_linters = {'javascript': ['eslint', 'flow']}                                                                                                                         
+let g:ale_linters = {'javascript': ['eslint', 'flow']}
+let g:ale_fixers = {'ruby': ['rubocop']}
+
 " vim-go
 let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
@@ -239,3 +238,6 @@ autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" vim-terraform
+let g:terraform_fmt_on_save=1
