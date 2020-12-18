@@ -32,11 +32,9 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'uiiaoo/java-syntax.vim'
-
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'danchoi/ri.vim'                   " Use ,K to search
-
 
 call plug#end()
 
