@@ -23,7 +23,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'machakann/vim-sandwich'           " `saiw(` to add, `sd(` to delete, `srb(` to replace
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer --go-completer --java-completer' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer --go-completer --java-completer' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'
 Plug 'hashivim/vim-terraform'
 Plug 'AndrewRadev/splitjoin.vim'        " gS to split and gJ to join
@@ -32,9 +33,18 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'uiiaoo/java-syntax.vim'
+
+" Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'danchoi/ri.vim'                   " Use ,K to search
+
+" Clojure
+Plug 'Olical/conjure'
+Plug 'bhurlow/vim-parinfer'
+Plug 'luochen1990/rainbow'
+Plug 'clojure-vim/async-clj-omni' " check https://github.com/neoclide/coc.nvim/wiki/Language-servers#clojure
+Plug 'dmac/vim-cljfmt'
 
 call plug#end()
 
@@ -233,7 +243,7 @@ let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
 
 " YCM
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 
 " spellcheck for *.md files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
@@ -245,3 +255,9 @@ endif
 
 " vim-terraform
 let g:terraform_fmt_on_save=1
+
+" conjure
+let maplocalleader=","
+
+" rainbow
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
