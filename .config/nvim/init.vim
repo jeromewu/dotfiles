@@ -20,8 +20,8 @@ Plug 'mattn/emmet-vim'                  " improve HTML workflow using <C-y>, to 
 Plug 'airblade/vim-gitgutter'           " show git gutter, ]c jump to next change, [c jump to prev one
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
-Plug 'machakann/vim-sandwich'           " `saiw(` to add, `sd(` to delete, `srb(` to replace
-Plug 'jiangmiao/auto-pairs'
+" Plug 'machakann/vim-sandwich'           " `saiw(` to add, `sd(` to delete, `srb(` to replace
+" Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer --go-completer --java-completer' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -40,11 +40,15 @@ Plug 'tpope/vim-rails'
 Plug 'danchoi/ri.vim'                   " Use ,K to search
 
 " Clojure
-Plug 'Olical/conjure'
-Plug 'bhurlow/vim-parinfer'
-Plug 'luochen1990/rainbow'
-Plug 'clojure-vim/async-clj-omni' " check https://github.com/neoclide/coc.nvim/wiki/Language-servers#clojure
-Plug 'dmac/vim-cljfmt'
+Plug 'tpope/vim-fireplace'              " `cpp` eval the innermost form/parenthesis under the cursor, `cmm` fully macroexpand
+Plug 'bhurlow/vim-parinfer'             " use indent to match parenthesis
+Plug 'luochen1990/rainbow'              " rainbow color for parenthesis
+Plug 'clojure-vim/async-clj-omni'       " check https://github.com/neoclide/coc.nvim/wiki/Language-servers#clojure
+Plug 'venantius/vim-cljfmt'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 call plug#end()
 
@@ -93,6 +97,7 @@ set encoding=utf8                       "encoding
 set visualbell                          "chose visual bell rather than beeping
 set t_Co=256                            "Support 256 color
 set splitbelow                          "make all split happen below
+set termguicolors
 
 "search
 set incsearch                           "incremental search
@@ -257,7 +262,42 @@ endif
 let g:terraform_fmt_on_save=1
 
 " conjure
-let maplocalleader=","
+" let maplocalleader=","
 
 " rainbow
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+" coc
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
