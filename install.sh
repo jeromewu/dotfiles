@@ -41,6 +41,7 @@ install_fzf() {
 }
 
 install_tmux() {
+  # fix battery issue: https://github.com/dracula/tmux/pull/26
   echo "Install oh-my-tmux..."
   check_deps tmux
   cp .tmux.conf.local ~
