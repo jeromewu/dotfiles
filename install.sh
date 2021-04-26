@@ -43,10 +43,11 @@ install_fzf() {
 install_tmux() {
   echo "Install oh-my-tmux..."
   check_deps tmux
+  cp .tmux.conf.local ~
   cd
   git clone https://github.com/gpakosz/.tmux.git
   ln -s -f .tmux/.tmux.conf
-  cp .tmux/.tmux.conf.local .
+  # cp .tmux/.tmux.conf.local .
   cd -
 }
 
