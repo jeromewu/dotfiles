@@ -9,6 +9,7 @@
 """"""""""
 call plug#begin()
 
+" General
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'pangloss/vim-javascript'
@@ -23,7 +24,6 @@ Plug 'preservim/nerdcommenter'
 " Plug 'machakann/vim-sandwich'           " `saiw(` to add, `sd(` to delete, `srb(` to replace
 " Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --ts-completer --go-completer --java-completer' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'
 Plug 'hashivim/vim-terraform'
@@ -33,6 +33,9 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'uiiaoo/java-syntax.vim'
+Plug 'christianrondeau/vim-base64'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -301,3 +304,5 @@ function! s:show_documentation()
   endif
 endfunction
 
+" vim-notes
+let g:notes_directories = ['~/.config/nvim/notes']
