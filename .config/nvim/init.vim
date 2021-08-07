@@ -33,6 +33,7 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'uiiaoo/java-syntax.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'christianrondeau/vim-base64'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
@@ -94,7 +95,7 @@ syntax on                               "show syntax color
 set background=dark                     "set background dark
 set title                               "show title
 set cursorline                          "highlight current line
-set cursorcolumn                        "highlight current column
+" set cursorcolumn                        "highlight current column
 "set mouse=a                             "mouse support (for highlighting etc.), press shift when you want to copy&paste
 set encoding=utf8                       "encoding
 set visualbell                          "chose visual bell rather than beeping
@@ -128,7 +129,7 @@ nmap <silent> <leader>xx :%!xxd -r<cr>
 " Quickfix window shortcuts
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+nnoremap <leader>qc :cclose<CR>
 
 " ,t to open a terminal
 " To scroll the terminal, hit Ctrl+w N and go back with i or a
@@ -142,6 +143,16 @@ autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>d  :GoDoc<CR>
+autocmd FileType go nmap <Leader>db :GoDebugBreakpoint<CR>
+autocmd FileType go nmap <Leader>dc :GoDebugContinue<CR>
+autocmd FileType go nmap <Leader>dn :GoDebugNext<CR>
+autocmd FileType go nmap <Leader>dp <Plug>(go-debug-print)
+autocmd FileType go nmap <Leader>ds :GoDebugStart<CR>
+autocmd FileType go nmap <Leader>dt :GoDebugTest<CR>
+autocmd FileType go nmap <Leader>de :GoDebugStop<CR>
+autocmd FileType go nmap <Leader>dr :GoDebugRestart<CR>
+
 
 " splitjoin
 let g:splitjoin_split_mapping = ''
@@ -249,6 +260,13 @@ let g:ale_fixers = {'ruby': ['rubocop']}
 " vim-go
 let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
+let g:go_debug_windows = {
+      \ 'vars':       'leftabove 30vnew',
+      "\ 'stack':      'leftabove 20new',
+      \ 'stack':      'botright 5new',
+      "\ 'goroutines': 'botright 10new',
+      "\ 'out':        'botright 5new',
+      \ }
 
 " YCM
 " let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
@@ -306,3 +324,12 @@ endfunction
 
 " vim-notes
 let g:notes_directories = ['~/.config/nvim/notes']
+
+"vim-airline
+let g:airline_theme='dracula'
+
+" dracula
+augroup CustomCursorLine
+  au!    
+  au VimEnter * :hi! CursorLine gui=underline guibg=NONE
+augroup END
