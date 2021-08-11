@@ -37,6 +37,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'christianrondeau/vim-base64'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -142,7 +143,9 @@ autocmd FileType js nmap <leader>jd :JsDoc<cr>
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>rf :GoReferrers<CR>
+autocmd FileType go nmap <Leader>a  :GoAlternate<CR>
 autocmd FileType go nmap <Leader>d  :GoDoc<CR>
 autocmd FileType go nmap <Leader>db :GoDebugBreakpoint<CR>
 autocmd FileType go nmap <Leader>dc :GoDebugContinue<CR>
@@ -267,9 +270,8 @@ let g:go_debug_windows = {
       "\ 'goroutines': 'botright 10new',
       "\ 'out':        'botright 5new',
       \ }
-
-" YCM
-" let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1
 
 " spellcheck for *.md files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
