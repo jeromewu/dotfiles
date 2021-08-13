@@ -157,17 +157,33 @@ nmap <Leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
 xmap <Leader>di <Plug>VimspectorBalloonEval
 
-nmap <Leader>ds :call vimspector#Launch()<CR>
+fun GotoWindow(id)
+  call win_gotoid(a:id)
+  MaximizerToggle
+endfun
+
+nnoremap <Leader>dd :call vimspector#Launch()<CR>
+nnoremap <Leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
+nnoremap <Leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
+nnoremap <Leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+nnoremap <Leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+nnoremap <Leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <Leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+nnoremap <Leader>de :call vimspector#Reset()<CR>
+
+nmap <Leader>dl <Plug>VimspectorStepInto
+nmap <Leader>dj <Plug>VimspectorStepOver
+nmap <Leader>dk <Plug>VimspectorStepOut
+nmap <Leader>d_ <Plug>VimspectorRestart
+nnoremap <Leader>d<space> <Plug>VimspectorContinue
+nmap <Leader>drc <Plug>VimspectorRunToCursor
 nmap <Leader>db <Plug>VimspectorToggleBreakpoint
-nmap <Leader>de <Plug>VimspectorStop
-nmap <Leader>dr <Plug>VimspectorRestart
-nmap <Leader>dc <Plug>VimspectorContinue
-nmap <Leader>dn <Plug>VimspectorStepInto
+nmap <Leader>dcb <Plug>VimspectorToggleConditionalBreakpoint
 
 " vim-maximizer
-nnoremap <Leader>m :MaximizerToggle<CR>
-vnoremap <Leader>m :MaximizerToggle<CR>gv
-inoremap <Leader>m <C-o>:MaximizerToggle<CR>
+nnoremap <Leader>m :MaximizerToggle!<CR>
+"vnoremap <Leader>m :MaximizerToggle<CR>gv
+"inoremap <Leader>m <C-o>:MaximizerToggle<CR>
 
 " splitjoin
 let g:splitjoin_split_mapping = ''
