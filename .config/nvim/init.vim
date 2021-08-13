@@ -175,15 +175,13 @@ nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
 nmap <Leader>dk <Plug>VimspectorStepOut
 nmap <Leader>d_ <Plug>VimspectorRestart
-nnoremap <Leader>d<space> <Plug>VimspectorContinue
+nnoremap <Leader>d<space> :call vimspector#Continue()<CR>
 nmap <Leader>drc <Plug>VimspectorRunToCursor
 nmap <Leader>db <Plug>VimspectorToggleBreakpoint
 nmap <Leader>dcb <Plug>VimspectorToggleConditionalBreakpoint
 
 " vim-maximizer
 nnoremap <Leader>m :MaximizerToggle!<CR>
-"vnoremap <Leader>m :MaximizerToggle<CR>gv
-"inoremap <Leader>m <C-o>:MaximizerToggle<CR>
 
 " splitjoin
 let g:splitjoin_split_mapping = ''
