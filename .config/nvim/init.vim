@@ -38,6 +38,8 @@ Plug 'christianrondeau/vim-base64'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'                " use F3 to toggle
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -145,18 +147,27 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>rf :GoReferrers<CR>
-autocmd FileType go nmap <Leader>si :GoSameIds<CR>
 autocmd FileType go nmap <Leader>a  :GoAlternate<CR>
 autocmd FileType go nmap <Leader>d  :GoDoc<CR>
-autocmd FileType go nmap <Leader>db :GoDebugBreakpoint<CR>
-autocmd FileType go nmap <Leader>dc :GoDebugContinue<CR>
-autocmd FileType go nmap <Leader>dn :GoDebugNext<CR>
-autocmd FileType go nmap <Leader>dp <Plug>(go-debug-print)
-autocmd FileType go nmap <Leader>ds :GoDebugStart<CR>
-autocmd FileType go nmap <Leader>dt :GoDebugTest<CR>
-autocmd FileType go nmap <Leader>de :GoDebugStop<CR>
-autocmd FileType go nmap <Leader>dr :GoDebugRestart<CR>
 
+" vimspector
+" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+
+nmap <Leader>ds :call vimspector#Launch()<CR>
+nmap <Leader>db <Plug>VimspectorToggleBreakpoint
+nmap <Leader>de <Plug>VimspectorStop
+nmap <Leader>dr <Plug>VimspectorRestart
+nmap <Leader>dc <Plug>VimspectorContinue
+nmap <Leader>dn <Plug>VimspectorStepInto
+
+" vim-maximizer
+nnoremap <Leader>m :MaximizerToggle<CR>
+vnoremap <Leader>m :MaximizerToggle<CR>gv
+inoremap <Leader>m <C-o>:MaximizerToggle<CR>
 
 " splitjoin
 let g:splitjoin_split_mapping = ''
@@ -185,9 +196,21 @@ nmap s <Plug>(easymotion-overwin-f2)
 map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
 
+" tab navigation
+map <Leader>t :tabnew<CR>
+nmap <Leader>t :tabnew<CR>
+map <Leader>tc :tabclose<CR>
+nmap <Leader>tc :tabclose<CR>
+map <Leader>tn :tabnext<CR>
+nmap <Leader>tn :tabnext<CR>
+map <Leader>tp :tabprevious<CR>
+nmap <Leader>tp :tabprevious<CR>
+
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+
 
 """""""""""""""""""
 "Function, autocmd"
@@ -224,7 +247,7 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " NerdCommenter
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 0
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
@@ -262,6 +285,7 @@ let g:ale_linters = {'javascript': ['eslint', 'flow']}
 let g:ale_fixers = {'ruby': ['rubocop']}
 
 " vim-go
+let g:go_maps_enabled = 0
 let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
 let g:go_debug_windows = {
@@ -271,7 +295,6 @@ let g:go_debug_windows = {
       "\ 'goroutines': 'botright 10new',
       "\ 'out':        'botright 5new',
       \ }
-let g:go_auto_type_info = 1
 
 " spellcheck for *.md files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
