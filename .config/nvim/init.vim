@@ -123,11 +123,17 @@ map j gj
 map k gk
 
 ",pp to toggle and untoggle paste mode on and off"
-map <leader>pp :setlocal paste!<cr>
+map <silent> <leader>pp :setlocal paste!<cr>
 
 ",x to view in hex mode ,xx to return
 nmap <silent> <leader>x :%!xxd<cr>
 nmap <silent> <leader>xx :%!xxd -r<cr>
+
+",jq to format json file
+nnoremap <silent> <leader>jq :%!jq .<CR>
+
+",cd to change directory to current
+nnoremap <silent> <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Quickfix window shortcuts
 map <C-n> :cnext<CR>
@@ -136,7 +142,7 @@ nnoremap <leader>qc :cclose<CR>
 
 " ,t to open a terminal
 " To scroll the terminal, hit Ctrl+w N and go back with i or a
-map <leader>t :term<cr>
+" map <leader>t :term<cr>
 
 " ,jd to insert jsDoc
 autocmd FileType js nmap <leader>jd :JsDoc<cr>
@@ -148,7 +154,7 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>rf :GoReferrers<CR>
 autocmd FileType go nmap <Leader>a  :GoAlternate<CR>
-autocmd FileType go nmap <Leader>d  :GoDoc<CR>
+autocmd FileType go nmap <Leader>d  :GoDoc<SPACE>
 
 " vimspector
 " mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
@@ -159,7 +165,6 @@ xmap <Leader>di <Plug>VimspectorBalloonEval
 
 fun GotoWindow(id)
   call win_gotoid(a:id)
-  MaximizerToggle
 endfun
 
 nnoremap <Leader>dd :call vimspector#Launch()<CR>
@@ -224,8 +229,6 @@ nmap <Leader>tp :tabprevious<CR>
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
-
-
 """""""""""""""""""
 "Function, autocmd"
 """""""""""""""""""
@@ -261,7 +264,7 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " NerdCommenter
-let g:NERDSpaceDelims = 0
+let g:NERDSpaceDelims = 1
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
