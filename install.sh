@@ -20,13 +20,6 @@ install_zsh() {
   touch ~/.z # For z plugin
 }
 
-install_zsh_pure_theme() {
-  echo "Install zsh pure theme..."
-  check_deps zsh git
-  mkdir -p "$HOME/.zsh"
-  git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-}
-
 install_zsh_syn_hl() {
   echo "Install zsh syntax highlighting..."
   check_deps zsh git
@@ -48,15 +41,14 @@ install_tmux() {
   cd
   git clone https://github.com/gpakosz/.tmux.git
   ln -s -f .tmux/.tmux.conf
-  # cp .tmux/.tmux.conf.local .
   cd -
 }
 
 install_nvm_and_node() {
-  echo "Install nvm & node 12..."
+  echo "Install nvm & node 16..."
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
   sh ~/.nvm/nvm.sh
-  nvm install v12.16.2
+  nvm install v16
 }
 
 install_nvim_plugins() {
@@ -70,7 +62,6 @@ install_nvim_plugins() {
 
 main() {
   install_zsh
-  install_zsh_pure_theme
   install_zsh_syn_hl
   install_fzf
   install_tmux

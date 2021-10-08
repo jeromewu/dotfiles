@@ -1,9 +1,0 @@
-clojure
-
-# vector
-
-• .indexOf
-
-```clojure
-(.indexOf [1 2 3] 1) ; 0
-```
