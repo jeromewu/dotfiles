@@ -1,7 +1,6 @@
 "" Core
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'neomake/neomake'
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'AndrewRadev/splitjoin.vim'
