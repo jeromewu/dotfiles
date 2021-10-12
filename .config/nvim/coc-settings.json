@@ -11,5 +11,7 @@
         "ignore-classpath-directories": true
       }
     }
-  }
+  },
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "javascript", "javascriptreact"]
 }

@@ -1,4 +1,5 @@
 " search by file name
-nmap <silent> <C-f> :Files<CR>
+nmap <silent> <leader>r :Files<CR>
+nmap <silent> <leader>b :Buffers<CR>
 " search file content
 nnoremap \ :Ag<CR>

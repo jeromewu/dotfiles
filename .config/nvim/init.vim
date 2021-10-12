@@ -15,6 +15,6 @@ for file in split(glob(Dot("modules/*.vim")), "\n")
 endfor
 
 " load customized config
-if filereadable("~/.nvim.local.vim")
+if filereadable(expand("~/.nvim.local.vim"))
   source ~/.nvim.local.vim
 endif
