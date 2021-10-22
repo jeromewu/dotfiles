@@ -8,6 +8,9 @@ nnoremap k gk
 " use ii as ESC
 inoremap ii <ESC>
 
+" use ii to back to normal mode in terminal
+tnoremap ii <C-\><C-n>
+
 " ,vr to reload vim config
 nnoremap <leader>vr :source $MYVIMRC<cr>
 
@@ -32,3 +35,6 @@ nnoremap <silent> <leader>tt :tabnew<cr>
 nnoremap <silent> <leader>tc :tabclose<cr>
 nnoremap <silent> <leader>tn :tabnext<cr>
 nnoremap <silent> <leader>tp :tabprevious<cr>
+
+" open terminal
+nnoremap <silent> <leader>tm :term<cr>
