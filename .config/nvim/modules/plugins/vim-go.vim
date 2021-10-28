@@ -10,9 +10,9 @@ let g:go_debug_windows = {
       \ }
 
 "" Mappings
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <leader>c  <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>gb  <Plug>(go-build)
+autocmd FileType go nmap <leader>gr  <Plug>(go-run)
+autocmd FileType go nmap <leader>gt  <Plug>(go-test)
+autocmd FileType go nmap <leader>gc  <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader>rf :GoReferrers<cr>
-autocmd FileType go nmap <leader>a  :GoAlternate<cr>
+autocmd FileType go nmap <leader>ga  :GoAlternate<cr>
