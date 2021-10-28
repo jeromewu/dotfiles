@@ -47,6 +47,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'as': 'coc'}
+Plug 'dense-analysis/ale'
 Plug 'puremourning/vimspector'
 
 "" Utils
