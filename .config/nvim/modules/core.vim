@@ -27,8 +27,6 @@ set tabstop=2
 set softtabstop=2
 " < > with 2 spaces
 set shiftwidth=2
-" insert spaces instead of tab
-set expandtab
 " auto indent of the new line
 set autoindent
 " c indent
