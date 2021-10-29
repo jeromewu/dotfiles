@@ -8,6 +8,7 @@ let g:go_debug_windows = {
       "\ 'goroutines': 'botright 10new',
       "\ 'out':        'botright 5new',
       \ }
+let g:go_gopls_gofumpt = 1
 
 "" Mappings
 autocmd FileType go nmap <leader>gb  <Plug>(go-build)
