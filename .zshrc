@@ -81,7 +81,6 @@ function init_fzf() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
 zvm_after_init_commands+=(init_fzf)
-export ZVM_VI_INSERT_ESCAPE_BINDKEY=ii
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
