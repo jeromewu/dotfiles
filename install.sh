@@ -11,13 +11,24 @@ check_deps() {
   done
 }
 
+install_starship() {
+	echo "Install starship"
+	sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+}
+
+install_fzf() {
+  echo "Install fzf (for zsh)..."
+  check_deps git
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+}
+
 install_zsh() {
   echo "Install oh-my-zsh..."
   check_deps zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   mkdir ~/.bin
   cp ./.zshrc ~/.zshrc
-  touch ~/.z # For z plugin
 }
 
 install_zsh_syn_hl() {
@@ -26,11 +37,10 @@ install_zsh_syn_hl() {
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 }
 
-install_fzf() {
-  echo "Install fzf (for zsh)..."
-  check_deps git
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
+install_zsh_vi_mode() {
+	echo "Install zsh vi mode"
+	check_deps zsh git
+	git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
 }
 
 install_tmux() {
@@ -61,8 +71,10 @@ install_nvim_plugins() {
 }
 
 main() {
+	install_starship
   install_zsh
   install_zsh_syn_hl
+	install_zsh_vi_mode
   install_fzf
   install_tmux
   install_nvm_and_node

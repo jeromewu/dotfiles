@@ -10,11 +10,6 @@ export ZSH="/home/jeromewu/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 
-# pure theme, @see: https://github.com/sindresorhus/pure
-fpath+=("$HOME/.zsh/pure")
-autoload -U promptinit; promptinit
-prompt pure
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -73,11 +68,21 @@ prompt pure
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git alias-finder z zsh-syntax-highlighting kubectl terraform rails ruby aws)
+plugins=(git zsh-syntax-highlighting kubectl aws zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Plugins configuration
+
+# zsh-vi-mode
+function init_fzf() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
+zvm_after_init_commands+=(init_fzf)
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=ii
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -108,6 +113,7 @@ alias ne='node --experimental-wasm-threads --experimental-wasm-bulk-memory'
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export TERM=xterm-256color
+export EDITOR=nvim
 
 # Custom bin path for hand-made binaries
 export PATH=$PATH:~/.bin
@@ -122,12 +128,9 @@ export NVM_DIR="$HOME/.nvm"
 # alias k=kubectl
 # complete -F __start_kubectl k
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Init startship
+eval "$(starship init zsh)"
 
-# function get_cluster_short() {
-#   echo "$1" | cut -d '/' -f2
-# }
-# PROMPT='$(kube_ps1)'$PROMPT
-# KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
-
-# source '/opt/kube-ps1/kube-ps1.sh'
+# include local configuration
+export ZSHRC_LOCAL=$HOME/.zshrc.local
+test -f $ZSHRC_LOCAL && source $ZSHRC_LOCAL
