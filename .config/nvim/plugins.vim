@@ -6,6 +6,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'AndrewRadev/splitjoin.vim', { 'as': 'splitjoin' }
 Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'MattesGroeger/vim-bookmarks'
 
 "" UI - Theme
 Plug 'dracula/vim', { 'as': 'dracula' }
