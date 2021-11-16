@@ -13,3 +13,4 @@ let g:airline#extensions#searchcount#enabled = 1
 let g:airline#extensions#windowswap#enabled = 1
 let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#bookmark#enabled = 1
