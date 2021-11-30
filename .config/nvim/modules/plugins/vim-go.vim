@@ -9,11 +9,15 @@ let g:go_debug_windows = {
       "\ 'out':        'botright 5new',
       \ }
 let g:go_gopls_gofumpt = 1
+let g:go_term_enabled = 1
+let g:go_term_reuse = 1
+let g:go_term_mode = 'split'
+let g:go_term_height = 10
 
 "" Mappings
 autocmd FileType go nmap <leader>gb  <Plug>(go-build)
 autocmd FileType go nmap <leader>gr  <Plug>(go-run)
-autocmd FileType go nmap <leader>gt  <Plug>(go-test)
+autocmd FileType go nmap <leader>gt  :GoTest -v<cr>
 autocmd FileType go nmap <leader>gc  <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader>rf :GoReferrers<cr>
 autocmd FileType go nmap <leader>ga  :GoAlternate<cr>
