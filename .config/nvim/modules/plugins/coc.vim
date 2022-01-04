@@ -9,6 +9,7 @@ let g:coc_global_extensions = [
       \ 'coc-sh',
       \ 'coc-tsserver',
       \ 'coc-yaml',
+      \ 'coc-rust-analyzer',
       \ ]
 
 "" Mappings

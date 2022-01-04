@@ -38,6 +38,8 @@ Plug 'hashivim/vim-terraform'
 " markdown
 Plug 'godlygeek/tabular'
 Plug 'gabrielelana/vim-markdown'
+" rust
+Plug 'rust-lang/rust.vim', { 'as': 'rust' }
 " others
 Plug 'MTDL9/vim-log-highlighting'
 
