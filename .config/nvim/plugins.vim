@@ -37,7 +37,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'hashivim/vim-terraform'
 " markdown
 Plug 'godlygeek/tabular'
-Plug 'gabrielelana/vim-markdown'
+Plug 'preservim/vim-markdown'
 " rust
 Plug 'rust-lang/rust.vim', { 'as': 'rust' }
 " others
@@ -52,6 +52,7 @@ Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'as': 'coc'}
 Plug 'dense-analysis/ale'
 Plug 'puremourning/vimspector'
+Plug 'jiangmiao/auto-pairs'
 
 "" Utils
 " ,m to maximize window

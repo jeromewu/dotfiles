@@ -6,3 +6,4 @@ autocmd BufReadPost *
 
 " spellcheck for *.md files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.md setlocal textwidth=80

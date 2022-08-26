@@ -33,6 +33,8 @@ set autoindent
 set cindent
 " enable backspace
 set backspace=indent,eol,start
+" use whitespace instead of tab
+set expandtab
 
 "" User Interface
 " show syntax color
