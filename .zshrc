@@ -76,14 +76,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Plugins configuration
 
-# zsh-vi-mode
-function init_fzf() {
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-}
-zvm_after_init_commands+=(init_fzf)
-export ZVM_VI_EDITOR=nvim
-
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -117,6 +109,9 @@ export EDITOR=nvim
 
 # Custom bin path for hand-made binaries
 export PATH=$PATH:~/.bin
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # NVM initialization scripts
 export NVM_DIR="$HOME/.nvm"
