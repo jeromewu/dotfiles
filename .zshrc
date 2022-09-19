@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Auto start tmux
+export ZSH_TMUX_AUTOSTART=true
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -68,7 +71,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting kubectl aws sudo)
+plugins=(git zsh-syntax-highlighting kubectl aws sudo node tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,3 +132,6 @@ eval "$(starship init zsh)"
 # include local configuration
 export ZSHRC_LOCAL=$HOME/.zshrc.local
 test -f $ZSHRC_LOCAL && source $ZSHRC_LOCAL
+
+# gvm
+# [[ -s "/home/jeromewu/.gvm/scripts/gvm" ]] && source "/home/jeromewu/.gvm/scripts/gvm"
