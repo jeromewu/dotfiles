@@ -1,3 +1,4 @@
+vim.cmd([[
 "" Generaal
 " enable non vim compatible features
 set nocompatible
@@ -59,3 +60,4 @@ set termguicolors
 set incsearch
 " highlight search term
 set hlsearch
+]])
