@@ -296,7 +296,7 @@ set -g mode-keys vi
 #set -g status-position top
 
 # plugins
-set -g @plugin 'dracula/tmux' 
+set -g @plugin 'catppuccin/tmux' 
 set -g @dracula-show-network false
 set -g @dracula-show-weather false
 set -g @dracula-show-powerline true
