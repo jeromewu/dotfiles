@@ -1,6 +1,3 @@
--- map leader to comma
-vim.g.mapleader = ","
-
 -- 1 tab equals to 2 spaces
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2

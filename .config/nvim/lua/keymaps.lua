@@ -7,3 +7,5 @@ vim.keymap.set('i', 'ii', '<ESC>')
 
 -- use ii to back to normal mode in terminal
 vim.keymap.set('t', 'ii', '<C-\\><C-n>')
+
+vim.keymap.set('n', '<LEADER>no', ':Neorg workspace notes<CR>')
