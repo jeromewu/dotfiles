@@ -1,3 +1,4 @@
+-- syntax highlight
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -5,7 +6,7 @@ return {
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-          ensure_installed = { "lua", "vim", "vimdoc", "norg" },
+          ensure_installed = { "lua", "norg" },
           sync_install = false,
           highlight = { enable = true },
           indent = { enable = true },  
