@@ -18,12 +18,16 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+      -- add `capabilities` to each lspconfig.*.setup to perform autocompletion
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({})
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
 
-      -- display defnintion
+			-- display defnintion
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-      -- display code actions
+			-- display code actions
 			vim.keymap.set({ "n", "v" }, "<LEADER>ca", vim.lsp.buf.code_action)
 		end,
 	},
@@ -40,7 +44,7 @@ return {
 				},
 			})
 
-      -- format current buffer
+			-- format current buffer
 			vim.keymap.set("n", "<LEADER>gf", vim.lsp.buf.format)
 		end,
 	},
