@@ -7,6 +7,10 @@ return {
 		require("catppuccin").setup({
 			integrations = {
 				neotree = true,
+				noice = true,
+        diffview = true,
+        mason = true,
+        notify = true,
 			},
 		})
 
