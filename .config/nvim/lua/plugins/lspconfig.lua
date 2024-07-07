@@ -18,7 +18,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-      -- add `capabilities` to each lspconfig.*.setup to perform autocompletion
+			-- add `capabilities` to each lspconfig.*.setup to perform autocompletion
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
@@ -39,8 +39,10 @@ return {
 
 			null_ls.setup({
 				sources = {
-					null_ls.builtins.formatting.stylua,
+					-- @ref: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
 					null_ls.builtins.completion.spell,
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.code_actions.gitsigns,
 				},
 			})
 
