@@ -5,6 +5,7 @@ return {
 		tag = "0.1.8",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		config = function()
 			require("telescope").setup({
@@ -22,9 +23,5 @@ return {
 			vim.keymap.set("n", "<LEADER>fb", builtin.buffers)
 			vim.keymap.set("n", "<LEADER>fh", builtin.help_tags)
 		end,
-	},
-	-- improved ui for code action selection and more.
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
 	},
 }
