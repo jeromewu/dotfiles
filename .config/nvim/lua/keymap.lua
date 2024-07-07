@@ -8,3 +8,5 @@ vim.keymap.set('i', 'ii', '<ESC>')
 -- use ii to back to normal mode in terminal
 vim.keymap.set('t', 'ii', '<C-\\><C-n>')
 
+-- use ,<CR> to disable hlsearch
+vim.keymap.set('n', '<LEADER><CR>', ':nohlsearch<CR>', { silent = true })
