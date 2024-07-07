@@ -5,3 +5,4 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 -- use spaces instead of tabs
 vim.opt.expandtab = true
+vim.opt.termguicolors = true
