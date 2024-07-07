@@ -8,9 +8,9 @@ return {
 			integrations = {
 				neotree = true,
 				noice = true,
-        diffview = true,
-        mason = true,
-        notify = true,
+				diffview = true,
+				mason = true,
+				notify = true,
 			},
 		})
 
