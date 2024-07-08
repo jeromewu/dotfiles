@@ -23,6 +23,8 @@ return {
 		},
 		config = function()
 			require("neogit").setup()
+
+      vim.keymap.set("n", "<LEADER>ng", ":Neogit<CR>", { silent = true })
 		end,
 	},
 }
