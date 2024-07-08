@@ -15,6 +15,14 @@ return {
 		end,
 	},
 	{
-		"sindrets/diffview.nvim",
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+			"nvim-telescope/telescope.nvim",
+		},
+		config = function()
+			require("neogit").setup()
+		end,
 	},
 }
