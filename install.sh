@@ -3,7 +3,7 @@
 set -eou pipefail
 
 check_deps() {
-  echo "Check dependencies..."
+  echo "Check dependencies"
   for cmd in $@
   do
     command -v $cmd > /dev/null 2>&1 || \
@@ -17,7 +17,7 @@ install_starship() {
 }
 
 install_zsh() {
-  echo "Install oh-my-zsh..."
+  echo "Install oh-my-zsh"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   mkdir ~/.bin
   cp ./.zshrc ~/.zshrc
@@ -25,18 +25,18 @@ install_zsh() {
 }
 
 install_zsh_syn_hl() {
-  echo "Install zsh syntax highlighting..."
+  echo "Install zsh syntax highlighting"
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 }
 
 install_fzf() {
-  echo "Install fzf (for zsh)..."
+  echo "Install fzf (for zsh)"
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install
 }
 
 install_dot_tmux() {
-  echo "Install oh-my-tmux..."
+  echo "Install oh-my-tmux"
   cp .tmux.conf.local ~
   cd
   git clone https://github.com/gpakosz/.tmux.git
@@ -45,6 +45,7 @@ install_dot_tmux() {
 }
 
 setup_neovim() {
+  echo "Setup neovim"
   cp -r ./.config/nvim ~/.config
   nvim --headless "+Lazy! sync" +qa
 }
