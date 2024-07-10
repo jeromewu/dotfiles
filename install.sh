@@ -57,7 +57,7 @@ main() {
   install_zsh_syn_hl
   install_fzf
   install_dot_tmux
-  setup-nvim
+  setup_nvim
 }
 
 main "$@"
