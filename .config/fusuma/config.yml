@@ -1,6 +1,0 @@
-swipe:
-  3:
-    left:
-      command: 'xdotool key ctrl+shift+Tab'
-    right:
-      command: 'xdotool key ctrl+Tab'

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -o pipefail
+set -eou pipefail
 
 check_deps() {
   echo "Check dependencies..."
@@ -16,37 +16,27 @@ install_starship() {
 	sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 }
 
-install_fzf() {
-  echo "Install fzf (for zsh)..."
-  check_deps git
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
-}
-
 install_zsh() {
   echo "Install oh-my-zsh..."
-  check_deps zsh
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   mkdir ~/.bin
   cp ./.zshrc ~/.zshrc
+  touch ~/.zshrc.local
 }
 
 install_zsh_syn_hl() {
   echo "Install zsh syntax highlighting..."
-  check_deps zsh git
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 }
 
-install_zsh_vi_mode() {
-	echo "Install zsh vi mode"
-	check_deps zsh git
-	git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
+install_fzf() {
+  echo "Install fzf (for zsh)..."
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
 }
 
-install_tmux() {
-  # fix battery issue: https://github.com/dracula/tmux/pull/26
+install_dot_tmux() {
   echo "Install oh-my-tmux..."
-  check_deps tmux
   cp .tmux.conf.local ~
   cd
   git clone https://github.com/gpakosz/.tmux.git
@@ -54,22 +44,19 @@ install_tmux() {
   cd -
 }
 
-install_nvm_and_node() {
-  echo "Install nvm & node 16..."
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-  sh ~/.nvm/nvm.sh
-  nvm install v16
+setup_neovim() {
+  cp -r ./.config/nvim ~/.config
+  nvim --headless "+Lazy! sync" +qa
 }
 
 main() {
+  check_deps git zsh tmux nvim
 	install_starship
   install_zsh
   install_zsh_syn_hl
-	install_zsh_vi_mode
   install_fzf
-  install_tmux
-  install_nvm_and_node
-  ./setup-nvim.sh
+  install_dot_tmux
+  setup-nvim
 }
 
 main "$@"

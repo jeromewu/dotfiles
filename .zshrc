@@ -103,7 +103,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
-alias ne='node --experimental-wasm-threads --experimental-wasm-bulk-memory'
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -116,16 +115,6 @@ export PATH=$PATH:~/.bin
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# NVM initialization scripts
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Autocomplete and alias for kubectl
-# source <(kubectl completion zsh)
-# alias k=kubectl
-# complete -F __start_kubectl k
-
 # Init startship
 eval "$(starship init zsh)"
 
@@ -133,5 +122,10 @@ eval "$(starship init zsh)"
 export ZSHRC_LOCAL=$HOME/.zshrc.local
 test -f $ZSHRC_LOCAL && source $ZSHRC_LOCAL
 
+# Autocomplete and alias for kubectl
+# source <(kubectl completion zsh)
+# alias k=kubectl
+# complete -F __start_kubectl k
+
 # gvm
-# [[ -s "/home/jeromewu/.gvm/scripts/gvm" ]] && source "/home/jeromewu/.gvm/scripts/gvm"
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
