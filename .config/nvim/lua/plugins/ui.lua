@@ -12,6 +12,9 @@ return {
           diffview = true,
           mason = true,
           notify = true,
+          harpoon = true,
+          nvim_surround = true,
+          which_key = true,
         },
       })
 
@@ -24,8 +27,9 @@ return {
     config = function()
       require("ibl").setup({
         scope = {
-          enabled = false
-        }
+          show_start = false,
+          show_end = false,
+        },
       })
     end,
   },
