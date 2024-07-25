@@ -31,6 +31,7 @@ return {
 				{ "<LEADER>n", group = "NeoTree/Neorg" },
 				{ "<LEADER>g", group = "Git" },
 				{ "<LEADER>d", group = "Diffview" },
+				{ "<LEADER>x", group = "Diagnostics" },
 			})
 		end,
 	},
