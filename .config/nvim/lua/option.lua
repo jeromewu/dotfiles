@@ -6,3 +6,5 @@ vim.opt.shiftwidth = 2
 -- use spaces instead of tabs
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
+-- show a virtual column at 80
+vim.opt.colorcolumn = "80"
