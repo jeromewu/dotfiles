@@ -19,7 +19,9 @@ return {
 			},
 		})
 
-		-- toggle neo-tree
-		vim.keymap.set("n", "<LEADER>nt", ":Neotree toggle=true<CR>", { silent = true })
+		vim.keymap.set("n", "<LEADER>nt", ":Neotree toggle=true<CR>", {
+			silent = true,
+			desc = "Toggle Neotree",
+		})
 	end,
 }

@@ -9,10 +9,10 @@ vim.keymap.set("i", "ii", "<ESC>")
 vim.keymap.set("t", "ii", "<C-\\><C-n>")
 
 -- use ,<CR> to disable hlsearch
-vim.keymap.set("n", "<LEADER><CR>", ":nohlsearch<CR>", { silent = true })
+vim.keymap.set("n", "<LEADER><CR>", ":nohlsearch<CR>", { silent = true, desc = "Disable hlsearch" })
 
 -- tab shortcuts
-vim.keymap.set("n", "<LEADER>tt", ":tabnew<CR>", { silent = true })
-vim.keymap.set("n", "<LEADER>tc", ":tabclose<CR>", { silent = true })
-vim.keymap.set("n", "<LEADER>tn", ":tabnext<CR>", { silent = true })
-vim.keymap.set("n", "<LEADER>tp", ":tabprevious<CR>", { silent = true })
+vim.keymap.set("n", "<LEADER>tt", ":tabnew<CR>", { silent = true, desc = "Create a new tab" })
+vim.keymap.set("n", "<LEADER>tc", ":tabclose<CR>", { silent = true, desc = "Close current tab" })
+vim.keymap.set("n", "<LEADER>tn", ":tabnext<CR>", { silent = true, desc = "Move to the next tab" })
+vim.keymap.set("n", "<LEADER>tp", ":tabprevious<CR>", { silent = true, desc = "Move to the previous tab" })

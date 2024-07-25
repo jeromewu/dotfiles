@@ -25,10 +25,12 @@ return {
 				capabilities = capabilities,
 			})
 
-			-- display defnintion
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-			-- display code actions
-			vim.keymap.set({ "n", "v" }, "<LEADER>ca", vim.lsp.buf.code_action)
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+        desc = "Display definition"
+      })
+			vim.keymap.set({ "n", "v" }, "<LEADER>ca", vim.lsp.buf.code_action, {
+        desc = "Display code actions"
+      })
 		end,
 	},
 	{
@@ -46,8 +48,9 @@ return {
 				},
 			})
 
-			-- format current buffer
-			vim.keymap.set("n", "<LEADER>gf", vim.lsp.buf.format)
+			vim.keymap.set("n", "<LEADER>cf", vim.lsp.buf.format, {
+        desc = "Format current buffer"
+      })
 		end,
 	},
 	{

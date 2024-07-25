@@ -25,8 +25,10 @@ return {
 				},
 			})
 
-			-- Open notes
-			vim.keymap.set("n", "<LEADER>no", ":Neorg workspace notes<CR>", { silent = true })
+			vim.keymap.set("n", "<LEADER>no", ":Neorg workspace notes<CR>", {
+				silent = true,
+				desc = "Open note",
+			})
 		end,
 	},
 }
