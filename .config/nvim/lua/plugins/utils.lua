@@ -58,4 +58,15 @@ return {
 			})
 		end,
 	},
+	-- surround selections
+	-- The three "core" operations of add/delete/change can be done with
+  -- the keymaps ys{motion}{char}, ds{char}, and cs{target}{replacement}
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
 }
