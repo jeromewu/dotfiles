@@ -26,11 +26,11 @@ return {
 			})
 
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
-        desc = "Display definition"
-      })
+				desc = "Display definition",
+			})
 			vim.keymap.set({ "n", "v" }, "<LEADER>ca", vim.lsp.buf.code_action, {
-        desc = "Display code actions"
-      })
+				desc = "Display code actions",
+			})
 		end,
 	},
 	{
@@ -49,8 +49,8 @@ return {
 			})
 
 			vim.keymap.set("n", "<LEADER>cf", vim.lsp.buf.format, {
-        desc = "Format current buffer"
-      })
+				desc = "Format current buffer",
+			})
 		end,
 	},
 	{
