@@ -9,3 +9,5 @@ vim.opt.termguicolors = true
 -- better tab experience
 vim.opt.wildmode = "longest,list,full"
 vim.opt.wildmenu = true
+-- neorg
+vim.opt.conceallevel = 2
