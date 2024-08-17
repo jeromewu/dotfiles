@@ -21,9 +21,13 @@ return {
 			-- add `capabilities` to each lspconfig.*.setup to perform autocompletion
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
+
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+      lspconfig.typos_lsp.setup({
+        capabilities = capabilities,
+      })
 
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
 				desc = "Display definition",
@@ -62,7 +66,7 @@ return {
 		},
 		config = function()
 			require("mason-null-ls").setup({
-				ensure_installed = { "stylua" },
+				ensure_installed = { "stylua", "typos-lsp" },
 			})
 		end,
 	},
