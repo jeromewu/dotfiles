@@ -6,3 +6,6 @@ vim.opt.shiftwidth = 2
 -- use spaces instead of tabs
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
+-- enable spell checker
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
