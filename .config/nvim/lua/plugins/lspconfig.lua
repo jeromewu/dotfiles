@@ -46,7 +46,6 @@ return {
 			null_ls.setup({
 				sources = {
 					-- @ref: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
-					null_ls.builtins.completion.spell,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.code_actions.gitsigns,
 				},
