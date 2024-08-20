@@ -73,4 +73,8 @@ return {
       })
     end,
   },
+  -- return to the last edit position when re-opening the file
+  {
+    "farmergreg/vim-lastplace",
+  },
 }
