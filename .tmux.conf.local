@@ -442,6 +442,7 @@ tmux_conf_uninstall_plugins_on_reload=true
 
 set -g @plugin 'catppuccin/tmux' 
 set -g @plugin 'tmux-plugins/tmux-logging'
+set -g @plugin 'tmux-plugins/tmux-yank'
 
 # vim-tmux-navigator
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
