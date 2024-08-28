@@ -28,9 +28,6 @@ local lang_server = {
       desc = "Display code actions",
     })
   end,
-  cli_tools = {
-    "stylua",
-  },
   cli_tool_config = function()
     local null_ls = require("null-ls")
 
@@ -76,18 +73,6 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = lang_server.natives,
-      })
-    end,
-  },
-  {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-    },
-    config = function()
-      require("mason-null-ls").setup({
-        ensure_installed = lang_server.cli_tools,
       })
     end,
   },
