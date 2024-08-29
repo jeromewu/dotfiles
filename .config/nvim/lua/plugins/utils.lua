@@ -78,4 +78,16 @@ return {
   {
     "farmergreg/vim-lastplace",
   },
+  -- search with motion
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {
+      modes = {
+        search = {
+          enabled = true,
+        },
+      },
+    },
+  },
 }
