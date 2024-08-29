@@ -69,4 +69,20 @@ return {
       require("trouble").setup()
     end,
   },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" },
+    config = function()
+      vim.o.foldlevel = 99
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+      vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = "Open All Folds" })
+      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = "Close all Folds" })
+      require('ufo').setup({
+        provider_selector = function()
+          return {'treesitter', 'indent'}
+        end
+      })
+    end,
+  }
 }
