@@ -38,6 +38,7 @@ return {
         { "<LEADER>n", group = "NeoTree/Neorg" },
         { "<LEADER>t", group = "Tab" },
         { "<LEADER>x", group = "Diagnostics" },
+        { "<LEADER>j", group = "Journal" },
       })
     end,
   },
