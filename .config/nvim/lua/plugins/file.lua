@@ -8,7 +8,11 @@ return {
       "MunifTanjim/nui.nvim",
     },
     config = function()
-      require("neo-tree").setup({})
+      require("neo-tree").setup({
+        window = {
+          width = 24,
+        },
+      })
 
       vim.keymap.set("n", "<LEADER>nt", ":Neotree toggle=true<CR>", {
         silent = true,

@@ -69,4 +69,26 @@ return {
       require("trouble").setup()
     end,
   },
+  {
+    'stevearc/aerial.nvim',
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
+    config = function()
+      require("aerial").setup({})
+      vim.keymap.set("n", "<LEADER>aa", ":AerialToggle!<CR>", {
+        silent = true,
+        desc="Toggle code outline"
+      })
+      vim.keymap.set("n", "<LEADER>an", ":AerialNext<CR>", {
+        silent = true,
+        desc="Go to next symbol"
+      })
+      vim.keymap.set("n", "<LEADER>ap", ":AerialPrev<CR>", {
+        silent = true,
+        desc="Go to previous symbol"
+      })
+    end
+  },
 }
