@@ -1,20 +1,28 @@
 return {
   {
-    "alexghergh/nvim-tmux-navigation",
+    'mrjones2014/smart-splits.nvim',
     config = function()
-      local nvim_tmux_nav = require("nvim-tmux-navigation")
-
-      nvim_tmux_nav.setup({
-        disable_when_zoomed = true, -- defaults to false
+      require("smart-splits").setup({
+        mux = {
+          type = "wezterm",
+        }
       })
-
-      vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
-      vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
-      vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
-      vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
-      vim.keymap.set("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
-      vim.keymap.set("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
-    end,
+      vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)
+      vim.keymap.set('n', '<A-j>', require('smart-splits').resize_down)
+      vim.keymap.set('n', '<A-k>', require('smart-splits').resize_up)
+      vim.keymap.set('n', '<A-l>', require('smart-splits').resize_right)
+      -- moving between splits
+      vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
+      vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
+      vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
+      vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+      vim.keymap.set('n', '<C-\\>', require('smart-splits').move_cursor_previous)
+      -- swapping buffers between windows
+      vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
+      vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
+      vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
+      vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
+    end
   },
   -- keymap documentation
   {
@@ -77,17 +85,5 @@ return {
   -- return to the last edit position when re-opening the file
   {
     "farmergreg/vim-lastplace",
-  },
-  -- search with motion
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {
-      modes = {
-        search = {
-          enabled = true,
-        },
-      },
-    },
   },
 }

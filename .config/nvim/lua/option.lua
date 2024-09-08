@@ -11,3 +11,5 @@ vim.opt.wildmode = "longest,list,full"
 vim.opt.wildmenu = true
 -- neorg
 vim.opt.conceallevel = 2
+-- copy to clipboard
+vim.opt.clipboard = "unnamedplus"

@@ -18,4 +18,5 @@ vim.keymap.set("n", "<LEADER>tn", ":tabnext<CR>", { silent = true, desc = "Move 
 vim.keymap.set("n", "<LEADER>tp", ":tabprevious<CR>", { silent = true, desc = "Move to the previous tab" })
 
 -- use ,cd to change current directory
-vim.keymap.set("n", "<LEADER>cd", ":cd %:p:h<CR>:pwd<CR>", { silent = true, desc = "Change current directory to file location" })
+vim.keymap.set("n", "<LEADER>cd", ":cd %:p:h<CR>:pwd<CR>",
+  { silent = true, desc = "Change current directory to file location" })

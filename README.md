@@ -4,4 +4,4 @@ Personal dotfiles.
 
 - neovim
 - zsh
-- tmux
+- wezterm

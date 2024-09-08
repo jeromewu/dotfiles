@@ -8,17 +8,7 @@ return {
       "MunifTanjim/nui.nvim",
     },
     config = function()
-      require("neo-tree").setup({
-        event_handlers = {
-          {
-            -- auto close neo-tree after opening a file
-            event = "file_open_requested",
-            handler = function()
-              require("neo-tree.command").execute({ action = "close" })
-            end,
-          },
-        },
-      })
+      require("neo-tree").setup({})
 
       vim.keymap.set("n", "<LEADER>nt", ":Neotree toggle=true<CR>", {
         silent = true,

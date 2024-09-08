@@ -2,12 +2,14 @@
 local parsers = {
   "lua",
   "norg",
+  "bash",
 }
 -- language servers
 local lang_server = {
   natives = {
     "lua_ls",
     "typos_lsp",
+    "bashls",
   },
   native_config = function()
     -- add `capabilities` to each lspconfig.*.setup to perform autocompletion
@@ -18,6 +20,9 @@ local lang_server = {
       capabilities = capabilities,
     })
     lspconfig.typos_lsp.setup({
+      capabilities = capabilities,
+    })
+    lspconfig.bashls.setup({
       capabilities = capabilities,
     })
 
@@ -34,7 +39,6 @@ local lang_server = {
     null_ls.setup({
       sources = {
         -- @ref: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
-        null_ls.builtins.formatting.stylua,
         null_ls.builtins.code_actions.gitsigns,
       },
     })
