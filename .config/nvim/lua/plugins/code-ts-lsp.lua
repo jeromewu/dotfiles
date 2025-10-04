@@ -3,6 +3,10 @@ local parsers = {
   "lua",
   "norg",
   "bash",
+  "cpp",
+  "javascript",
+  "typescript",
+  "tsx",
 }
 -- language servers
 local lang_server = {
@@ -10,19 +14,30 @@ local lang_server = {
     "lua_ls",
     "typos_lsp",
     "bashls",
+    "clangd",
+    "eslint",
   },
   native_config = function()
     -- add `capabilities` to each lspconfig.*.setup to perform autocompletion
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    local lspconfig = require("lspconfig")
 
-    lspconfig.lua_ls.setup({
+    vim.lsp.config('lua_ls', {
       capabilities = capabilities,
     })
-    lspconfig.typos_lsp.setup({
+
+    vim.lsp.config('typos_lsp', {
       capabilities = capabilities,
     })
-    lspconfig.bashls.setup({
+
+    vim.lsp.config('clangd', {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config('eslint', {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config('bashls', {
       capabilities = capabilities,
     })
 
