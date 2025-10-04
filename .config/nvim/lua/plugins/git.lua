@@ -35,20 +35,4 @@ return {
       })
     end,
   },
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",  -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("neogit").setup()
-
-      vim.keymap.set("n", "<LEADER>gg", ":Neogit<CR>", {
-        silent = true,
-        desc = "Open Neogit",
-      })
-    end,
-  },
 }
