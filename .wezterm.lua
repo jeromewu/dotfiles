@@ -44,6 +44,7 @@ end
 
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 config.font_size = 18
+config.audible_bell = "Disabled"
 
 config.leader = {
   mods = "CTRL",
@@ -105,12 +106,12 @@ config.keys = {
     action = wezterm.action.SpawnTab("CurrentPaneDomain"),
   },
   {
-    mods = "LEADER",
+    mods = "LEADER|CTRL",
     key = "l",
     action = wezterm.action.ActivateTabRelative(1),
   },
   {
-    mods = "LEADER",
+    mods = "LEADER|CTRL",
     key = "h",
     action = wezterm.action.ActivateTabRelative(-1),
   },
